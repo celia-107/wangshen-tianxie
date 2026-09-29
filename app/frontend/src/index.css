@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 75 20% 96%;
+    --foreground: 171 34% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 171 34% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 171 34% 14%;
+    --primary: 170 84% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 156 20% 92%;
+    --secondary-foreground: 171 34% 14%;
+    --muted: 156 20% 92%;
+    --muted-foreground: 168 10% 40%;
+    --accent: 42 89% 61%;
+    --accent-foreground: 171 34% 14%;
+    --destructive: 3 57% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 158 17% 87%;
+    --input: 158 17% 87%;
+    --ring: 42 89% 61%;
+    --radius: .75rem;
+  }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
+  button, a { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F4B942] focus-visible:ring-offset-2; }
+  code { @apply rounded bg-[#E9EFEB] px-1.5 py-0.5 text-[.9em] font-semibold text-[#075E52]; }
+}
+
+@layer components {
+  .primary-button { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#0B7A68] font-bold text-white shadow-[0_8px_20px_rgba(11,122,104,.2)] transition duration-150 hover:-translate-y-0.5 hover:bg-[#075E52] disabled:cursor-wait disabled:opacity-70; }
+  .secondary-button { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-[#A9BDB7] bg-transparent font-bold text-[#17302D] transition duration-150 hover:-translate-y-0.5 hover:border-[#0B7A68] hover:text-[#0B7A68]; }
+  .feature-card { @apply rounded-[20px] border border-[#D8E2DE] bg-white p-7 transition duration-150 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(16,42,42,.08)]; }
+  .eyebrow { @apply mb-3 text-sm font-black uppercase tracking-[.18em] text-[#0B7A68]; }
+  .section-title { @apply text-4xl font-black leading-tight tracking-[-.03em] md:text-[46px]; }
+  .section-copy { @apply mt-5 max-w-xl text-base leading-8 text-[#5C706C]; }
+  .step-card { @apply relative grid gap-5 rounded-[20px] border border-[#D8E2DE] bg-white p-6 shadow-[0_10px_26px_rgba(16,42,42,.05)] md:grid-cols-[56px_1fr] md:p-8; }
+  .step-number { @apply flex h-12 w-12 items-center justify-center rounded-full bg-[#F4B942] text-sm font-black text-[#17302D]; }
+  .step-body { @apply min-w-0; }
+  .steps-track { @apply relative space-y-4; }
+  .inline-action { @apply inline-flex h-10 items-center gap-2 rounded-lg bg-[#E4F2ED] px-4 text-sm font-bold text-[#075E52] transition hover:bg-[#D5EAE2]; }
+  .code-line { @apply block w-full overflow-x-auto rounded-xl bg-[#102A2A] px-4 py-3 text-sm text-white; }
+  .folder-hint { @apply mt-4 flex items-center gap-3 rounded-xl border border-dashed border-[#A9BDB7] bg-[#F7F9F6] p-4 text-sm text-[#17302D]; }
+  .note { @apply rounded-lg bg-[#FFF5DA] px-4 py-3 text-sm leading-6 text-[#7A4A08]; }
+  .usage-card { @apply flex gap-5 rounded-[20px] border border-[#CBDCD6] bg-white p-6; }
+  .usage-icon { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E7F5F0] text-[#0B7A68]; }
+  .status-card { @apply rounded-[20px] border bg-white p-6; }
+  .status-green { @apply border-[#B8DCCE] text-[#18835E]; }
+  .status-amber { @apply border-[#E8CE98] text-[#B76813]; }
+  .status-red { @apply border-[#E5BAB7] text-[#B93832]; }
+}
+
+@media (max-width: 767px) {
+  .hero-grid { min-height: auto; }
+  .step-card { padding-left: 1.25rem; }
+}
